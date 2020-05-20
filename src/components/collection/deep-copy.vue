@@ -17,72 +17,126 @@
 </template>
 
 <script>
-export default {
-  name: 'deepCopy',
-  methods: {
-    /**
-     *  通过对不通类型数据做不同处理的deepcopy，生产环境推荐用lodash
-     *
-     *  @author      jiangtao
-     *  @date        2020-01-09 08:57
-     */
-    clone1 (parent) {
-      // 维护两个储存循环引用的数组
-      const parents = []
-      const children = []
+  export default {
+    name: 'deepCopy',
+    methods: {
+      /**
+       *  通过对不通类型数据做不同处理的deepcopy，生产环境推荐用lodash
+       *
+       *  @author      jiangtao
+       *  @date        2020-01-09 08:57
+       */
+      clone1(parent) {
+        // 维护两个储存循环引用的数组
+        const parents = []
+        const children = []
 
-      const _clone = parent => {
-        if (parent === null) return null
-        if (typeof parent !== 'object') return parent
+        const _clone = parent => {
+          if (parent === null) return null
+          if (typeof parent !== 'object') return parent
 
-        let child, proto
+          let child, proto
 
-        if (isType(parent, 'Array')) {
-          // 对数组做特殊处理
-          child = []
-        } else if (isType(parent, 'RegExp')) {
-          // 对正则对象做特殊处理
-          child = new RegExp(parent.source, getRegExp(parent))
-          if (parent.lastIndex) child.lastIndex = parent.lastIndex
-        } else if (isType(parent, 'Date')) {
-          // 对Date对象做特殊处理
-          child = new Date(parent.getTime())
+          if (isType(parent, 'Array')) {
+            // 对数组做特殊处理
+            child = []
+          } else if (isType(parent, 'RegExp')) {
+            // 对正则对象做特殊处理
+            child = new RegExp(parent.source, getRegExp(parent))
+            if (parent.lastIndex) child.lastIndex = parent.lastIndex
+          } else if (isType(parent, 'Date')) {
+            // 对Date对象做特殊处理
+            child = new Date(parent.getTime())
+          } else {
+            // 处理对象原型
+            proto = Object.getPrototypeOf(parent)
+            // 利用Object.create切断原型链
+            child = Object.create(proto)
+          }
+
+          // 处理循环引用
+          const index = parents.indexOf(parent)
+
+          if (index !== -1) {
+            // 如果父数组存在本对象,说明之前已经被引用过,直接返回此对象
+            return children[index]
+          }
+          parents.push(parent)
+          children.push(child)
+
+          for (let i in parent) {
+            // 递归
+            child[i] = _clone(parent[i])
+          }
+
+          return child
+        }
+        return _clone(parent)
+      },
+      orderByWeight(input) {
+        let arr = input.split(' ');
+        let distArr = [];
+        let output = '';
+        // 算出每一项重量
+        arr.forEach(item => {
+          let tmp = {
+            name: item
+          }
+
+          let singleWeightArr = item.split('');
+          console.log(singleWeightArr)
+          let total = parseInt(0);
+          singleWeightArr.forEach(i => {
+            total += parseInt(i)
+          })
+
+          tmp.weight = total;
+          distArr.push(tmp);
+        });
+
+        // 排序
+        distArr = this.order(distArr);
+        distArr.forEach(item => {
+          if (output.length === 0) {
+            output += item.name;
+          } else {
+            output += ' ' + item.name;
+          }
+        })
+        console.log(output);
+      },
+
+      order(dist) {
+        if (dist.length === 1) {
+          return dist;
+        } else if (dist.length === 0) {
+          return []
         } else {
-          // 处理对象原型
-          proto = Object.getPrototypeOf(parent)
-          // 利用Object.create切断原型链
-          child = Object.create(proto)
+          const pivot = dist[0];
+          const pivotArr = [];
+          const lowArr = [];
+          const hightArr = [];
+          dist.forEach(current => {
+            if (current.weight === pivot.weight) pivotArr.push(current);
+            else if (current.weight > pivot.weight) hightArr.push(current);
+            else lowArr.push(current);
+          })
+          return this.order(lowArr).concat(pivotArr).concat(this.order(hightArr));
         }
-
-        // 处理循环引用
-        const index = parents.indexOf(parent)
-
-        if (index !== -1) {
-          // 如果父数组存在本对象,说明之前已经被引用过,直接返回此对象
-          return children[index]
-        }
-        parents.push(parent)
-        children.push(child)
-
-        for (let i in parent) {
-          // 递归
-          child[i] = _clone(parent[i])
-        }
-
-        return child
       }
-      return _clone(parent)
+    },
+    mounted() {
+      this.orderByWeight('103 123 4444 99 2000')
     }
   }
-}
 
-function isType (a, b) {
-  // 判断参数类型
-}
+  function isType(a, b) {
+    // 判断参数类型
+  }
 
-function getRegExp (a) {
-  // 获取正则
-}
+  function getRegExp(a) {
+    // 获取正则
+  }
 </script>
 
 <style scoped lang="scss">
