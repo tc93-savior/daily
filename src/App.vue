@@ -13,6 +13,7 @@
         <li @click="turnTo('puzzle')">css 拼图特效</li>
         <li @click="turnTo('cssAnimation')">css 动画</li>
         <li @click="turnTo('closure')">二级菜单--闭包</li>
+        <li @click="turnTo('flexDemo')">flex样例</li>
       </ul>
       <router-view/>
     </div>

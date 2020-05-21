@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import personInfo from '../components/person-info'
-import {deepCopy, puzzle, vueReactive, cssAnimation} from '../components/collection'
+import {deepCopy, puzzle, vueReactive, cssAnimation, flexDemo} from '../components/collection'
 import {closure} from '../components/js_the_good_part'
 // import deepCopy from '../components/collection/deep-copy'
 // import puzzle from '../components/collection/puzzle'
@@ -34,5 +34,9 @@ export default new Router({
     path: '/closure',
     name: 'closure',
     component: closure
+  }, {
+    path: '/flexDemo',
+    name: 'flexDemo',
+    component: flexDemo
   }]
 })

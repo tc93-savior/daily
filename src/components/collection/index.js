@@ -4,7 +4,8 @@ import vueReactive from './vue-reactive'
 import myPromise from './promise'
 import cssAnimation from './cssAnimation'
 import clock from './clock'
+import flexDemo from './flex-demo'
 
 export {
-  deepCopy, puzzle, vueReactive, myPromise, cssAnimation, clock
+  deepCopy, puzzle, vueReactive, myPromise, cssAnimation, clock, flexDemo
 }

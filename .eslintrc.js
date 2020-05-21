@@ -27,7 +27,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     quotes: [1], //引号类型 `` "" ''
     'space-before-function-paren': [0], //函数定义时括号前面要不要有空格
-    semi: [1, 'always'], //语句强制分号结尾
+    semi: [0], //语句强制分号结尾
     'comma-dangle': [1, 'never'], //对象字面量项尾不能有逗号
     indent: [0], //缩进风格,
     'one-var': 0 // 连续声明

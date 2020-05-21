@@ -12,7 +12,6 @@
           console.log(e)
         }
       },
-      
     },
     mounted() {
       this.orderByWeight('111 1112 232 2000');
