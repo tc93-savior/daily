@@ -26,6 +26,7 @@ export default {
     }
   },
   mounted () {
+    console.log( `测试ssh`)
   }
 }
 </script>
