@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="title">
-      代码库
+      res
       <div class="right-title-content">
         <weather></weather>
         <clock></clock>
@@ -61,8 +61,9 @@ export default {
       font-weight: bolder;
       /*float: left;*/
       text-align: left;
-      background-color: #353D52;
-      color: white;
+      background-color: white;
+      border: lightgray solid 1px;
+      color: black;
 
       .right-title-content {
         float: right;
@@ -76,22 +77,23 @@ export default {
       height: calc(100vh - 110px);
       display: grid;
       grid-template-columns: 200px auto;
-      grid-template-rows: auto 50px;
+      grid-template-rows: auto;
       justify-items: start;
 
       .menu {
         width: 100%;
         height: 100%;
         padding: 0;
-        margin: 0;
+        margin: 20px 0;
         list-style: none;
-        background-color: lightgray;
+        // background-color: lightgray;
+        border-right: lightgray solid 1px;
       }
 
       .menu > li {
         color: black;
         list-style: none;
-        padding: 0;
+        padding: 5px 0;
         margin: 0;
         /*background-color: #191f31;*/
       }

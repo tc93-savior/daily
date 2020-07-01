@@ -15,7 +15,7 @@ export default new Router({
     name: 'personInfo',
     component: personInfo
   }, {
-    path: '/deepCopy', // 只能用驼峰？
+    path: '/deepCopy', 
     name: 'deepCopy',
     component: deepCopy
   }, {

@@ -1,7 +1,6 @@
 <template>
   <div class="person-info">
-    <!--有空得把简历搬到这个页面上来-->
-    
+    <!--有空得把简历搬到这个页面上来-->    
   </div>
 </template>
 
