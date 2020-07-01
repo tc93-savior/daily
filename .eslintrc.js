@@ -31,6 +31,5 @@ module.exports = {
     'comma-dangle': [1, 'never'], //对象字面量项尾不能有逗号
     indent: [0], //缩进风格,
     'one-var': 0, // 连续声明
-    'no-trailing-spaces': 0 
   }
 }

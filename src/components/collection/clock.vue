@@ -56,12 +56,13 @@ export default {
 <style scoped>
   .clock {
     border-radius: 50%;
-    background: lightgray url('../../assets/clock.svg') no-repeat center;
+    background: white url('../../assets/clock.svg') no-repeat center;
     background-size: 88%;
     height: 70px;
     margin-top: 14px;
     position: relative;
     width: 70px;
+    border: 2px solid black
   }
 
   .clock:after {

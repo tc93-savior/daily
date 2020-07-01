@@ -9,13 +9,14 @@
     </div>
     <div class="content">
       <ul class="menu">
-        <li @click="turnTo('deepCopy')">对象数组深拷贝</li>
-        <li @click="turnTo('puzzle')">css 拼图特效</li>
-        <li @click="turnTo('cssAnimation')">css 动画</li>
-        <li @click="turnTo('closure')">二级菜单--闭包</li>
-        <li @click="turnTo('flexDemo')">flex样例</li>
+        <li @click="turnTo('deepCopy')">1</li>
+        <li @click="turnTo('puzzle')">2</li>
+        <li @click="turnTo('cssAnimation')">3</li>
+        <li @click="turnTo('closure')">二级菜单</li>
+        <li @click="turnTo('flexDemo')">flex</li>
+        <li @click="turnTo('uiTest')">测试组件</li>
       </ul>
-      <router-view/>
+      <router-view class="right"/>
     </div>
   </div>
 </template>
@@ -75,13 +76,10 @@ export default {
 
     .content {
       height: calc(100vh - 110px);
-      display: grid;
-      grid-template-columns: 200px auto;
-      grid-template-rows: auto;
-      justify-items: start;
+      display: flex;
 
       .menu {
-        width: 100%;
+        flex: 0 0 200px;
         height: 100%;
         padding: 0;
         margin: 20px 0;
@@ -100,6 +98,11 @@ export default {
 
       li:nth-child(even) {
         /*background-color: #353D52;*/
+      }
+
+      .right{
+        flex: 1;
+        padding: 20px 10px
       }
     }
   }

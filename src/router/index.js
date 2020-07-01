@@ -6,6 +6,7 @@ import {closure} from '../components/js_the_good_part'
 // import deepCopy from '../components/collection/deep-copy'
 // import puzzle from '../components/collection/puzzle'
 // import vueReactive from '../components/collection/vue-reactive'
+import {uiTest} from '../components/test'
 
 Vue.use(Router)
 
@@ -15,7 +16,7 @@ export default new Router({
     name: 'personInfo',
     component: personInfo
   }, {
-    path: '/deepCopy', 
+    path: '/deepCopy',
     name: 'deepCopy',
     component: deepCopy
   }, {
@@ -38,5 +39,9 @@ export default new Router({
     path: '/flexDemo',
     name: 'flexDemo',
     component: flexDemo
+  }, {
+    path: '/uiTest',
+    name: 'uiTest',
+    component: uiTest
   }]
 })
