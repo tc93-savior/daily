@@ -9,7 +9,7 @@ import nav from './core'
 
 Vue.use(ElementUI);
 Vue.config.productionTip = false
-Vue.use(nav)
+Vue.use(nav);
 
 /* eslint-disable no-new */
 new Vue({

@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import personInfo from '../components/person-info'
 import {deepCopy, puzzle, vueReactive, cssAnimation, flexDemo} from '../components/collection'
 import {closure} from '../components/js_the_good_part'
-import {uiTest} from '../components/test'
+import {uiTest, markdownIt} from '../components/test'
 
 Vue.use(Router)
 
@@ -46,6 +46,13 @@ export default new Router({
     component: uiTest,
     meta: {
       title: 'element-ui开发测试'
+    }
+  }, {
+    path: '/markdownIt',
+    name: 'markdownIt',
+    component: markdownIt,
+    meta: {
+      title: '解析markdown语法'
     }
   }]
 })
