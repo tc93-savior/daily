@@ -9,14 +9,13 @@
     </div>
     <div class="content">
       <ul class="menu">
-        <li @click="turnTo('deepCopy')">1</li>
-        <li @click="turnTo('puzzle')">2</li>
-        <li @click="turnTo('cssAnimation')">3</li>
-        <li @click="turnTo('closure')">二级菜单</li>
-        <li @click="turnTo('flexDemo')">flex</li>
-        <li @click="turnTo('uiTest')">测试组件</li>
+        <li v-for="router in routes" :key="router.name" @click="turnTo(router)">
+          {{router.meta?router.meta.title:router.name}}
+        </li>
       </ul>
-      <router-view class="right"/>
+      <div class="right">
+        <navigator></navigator>
+      </div>
     </div>
   </div>
 </template>
@@ -29,9 +28,15 @@
 */
 import Clock from './components/collection/clock'
 import Weather from './components/collection/weather'
+import navigator from './core/navigator'
 export default {
   name: 'App',
-  components: {Weather, Clock},
+  components: {Weather, Clock, navigator},
+  data() {
+    return {
+      routes: []
+    }
+  },
   methods: {
     /**
      *  跳转
@@ -39,9 +44,15 @@ export default {
      *  @author      jiangtao
      *  @date        2019-11-19 16:13
      */
-    turnTo (path) {
-      this.$router.push(path)
+    turnTo (router) {
+      console.log(router);
+
+      this.$router.push(router.path)
     }
+  },
+  mounted() {
+    this.routes = this.$router.options.routes
+    console.log(this.$util)
   }
 }
 </script>
