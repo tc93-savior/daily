@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-      <router-view></router-view>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -22,7 +22,9 @@ export default {
 </script>
 
 <style lang="scss">
-    .nav{
-        padding:20px
-    }
+.nav {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+}
 </style>
