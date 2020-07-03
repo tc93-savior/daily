@@ -27,7 +27,7 @@ export default {
         showDialog() {
             // console.log(this.$prompt);
             this.$prompt('请输入文件名.md：', 'Save').then(({value}) => {
-                value = value + '.md'
+                value = value || new Date() + '.md'
                 this.download(value)
             }).catch(() => {
                 console.log('cancel');

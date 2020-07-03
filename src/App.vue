@@ -67,6 +67,7 @@ export default {
 
     .title {
       height: 100px;
+      width: 100%;
       line-height: 100px;
       font-size: 28px;
       padding-left: 10px;
@@ -74,7 +75,7 @@ export default {
       /*float: left;*/
       text-align: left;
       background-color: white;
-      border: lightgray solid 1px;
+      border-bottom: lightgray solid 1px;
       color: black;
 
       .right-title-content {
