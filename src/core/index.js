@@ -1,14 +1,9 @@
 import * as util from './util'
 
-const nav = {
+const utils = {
     install(Vue, options) {
-        // Vue.mixin({
-        //     mounted() {
-        //         console.log('mounted')
-        //     }
-        // })
         Vue.prototype.$util = util
     }
 }
 
-export default nav
+export default utils
