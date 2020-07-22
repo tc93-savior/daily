@@ -7,6 +7,26 @@
         <span v-if="!uploading" v-html="'将文件拖到此处，或<em>点击上传</em>'"></span>
       </div>
     </el-upload>
+
+    <el-tooltip placement="top" effect="dark" :visible-arrow="false" :manual="true" >
+      <div slot="content">多行信息</div>
+      <el-button>Top center</el-button>
+    </el-tooltip>
+
+    <el-popover effect="dark" :visible-arrow="false">
+      <div>shiyishi</div>
+      <el-button slot="reference">try it</el-button>
+    </el-popover>
+
+    <el-popover
+      ref="popover"
+      placement="right"
+      title="标题"
+      width="200"
+      trigger="focus"
+      content="这是一段内容,这是一段内容,这是一段内容,这是一段内容。"
+    ></el-popover>
+    <el-button v-popover:popover>focus 激活</el-button>
   </div>
 </template>
 
