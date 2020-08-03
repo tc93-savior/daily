@@ -84,3 +84,5 @@
     content="minimum-scale=1, initial-scale=1, width=device-width"
     />
    ```
+
+9. 实际上，JSX 仅仅只是 React.createElement(component, props, ...children) 函数的语法糖

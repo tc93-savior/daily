@@ -87,3 +87,4 @@
 
 > https://book.flutterchina.club/chapter3/flutter_widget_intro.html
 
+3. flutter环境变量可以写一个博客了
