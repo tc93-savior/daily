@@ -86,3 +86,18 @@
    ```
 
 9. 实际上，JSX 仅仅只是 React.createElement(component, props, ...children) 函数的语法糖
+10. 若要从服务端渲染的 HTML 中排除依赖布局 effect 的组件，可以通过使用 showChild && <Child /> 进行条件渲染，并使用 useEffect(() => { setShowChild(true); }, []) 延迟展示组件。这样，在客户端渲染完成之前，UI 就不会像之前那样显示错乱了。
+11. 这是因为当我们更新一个 state 变量，我们会 替换 它的值。这和 class 中的 this.setState 不一样，后者会把更新后的字段 合并 入对象中。
+如果你错过自动合并，你可以写一个自定义的 useLegacyState Hook 来合并对象 state 的更新。然而，我们推荐把 state 切分成多个 state 变量，每个变量包含的不同值会在同时发生变化。
+``` javascript
+    useEffect(() => {
+        function handleWindowMouseMove(e) {
+        // 展开 「...state」 以确保我们没有 「丢失」 width 和 height
+        setState(state => ({ ...state, left: e.pageX, top: e.pageY }));
+        }
+        // 注意：这是个简化版的实现
+        window.addEventListener('mousemove', handleWindowMouseMove);
+        return () => window.removeEventListener('mousemove', handleWindowMouseMove);
+    }, []);
+```
+    这里说的是关于react hook中 推荐将state拆分，而不是合在一起，因为hook中的setState是替换而不是像class中的合并
