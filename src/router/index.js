@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import personInfo from '../components/person-info'
-import {deepCopy, puzzle, vueReactive, cssAnimation, flexDemo} from '../components/collection'
-import {closure} from '../components/js_the_good_part'
-import {uiTest, markdownIt} from '../components/test'
+import { deepCopy, puzzle, vueReactive, cssAnimation, flexDemo, g2 } from '../components/collection'
+import { closure } from '../components/js_the_good_part'
+import { uiTest, markdownIt } from '../components/test'
 
 Vue.use(Router)
 
@@ -53,6 +53,13 @@ export default new Router({
     component: markdownIt,
     meta: {
       title: '解析markdown语法'
+    }
+  }, {
+    path: '/g2',
+    name: 'g2',
+    component: g2,
+    meta: {
+      title: 'antv-g2测试'
     }
   }]
 })
