@@ -61,5 +61,9 @@ export default new Router({
     meta: {
       title: 'antv-g2测试'
     }
+  }, {
+    path: 'image',
+    name: 'image-board',
+    component: import('@/components/collection/image')
   }]
 })
