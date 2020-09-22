@@ -1,13 +1,33 @@
 <template>
   <div class="vue-demo">
-    vue-响应式原理demo
+    <el-radio-group @change="change" v-model="data">
+      <el-radio :label="1">1</el-radio>
+      <el-radio :label="2">2</el-radio>
+    </el-radio-group>
+
+    <span>{{ data }}</span>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'vue-reactive'
-}
+  name: 'vue-reactive',
+  data() {
+    return {
+      data: 3
+    };
+  },
+  methods: {
+    change(val) {
+      console.log(val);
+    }
+  },
+  watch: {
+    data: function (val) {
+      console.log(val);
+    }
+  }
+};
 /**
  *  响应式数据 与 virtual dom
  *
@@ -231,11 +251,10 @@ export default {
 //
 //   return {change, list}
 // }
-
 </script>
 
 <style lang="scss" scoped>
-  .vue-demo {
-    font-size: 12px;
-  }
+.vue-demo {
+  font-size: 12px;
+}
 </style>

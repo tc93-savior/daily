@@ -17,6 +17,7 @@
     "element-ui": "^2.13.2",
     "g": "^2.0.1",
     "markdown-it-vue": "^1.1.2",
+    "scss-loader": "0.0.1",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
