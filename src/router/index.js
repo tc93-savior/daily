@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import personInfo from '../components/person-info'
+import apb from '../components/apb'
 import { deepCopy, puzzle, vueReactive, cssAnimation, flexDemo, g2 } from '../components/collection'
 import { closure } from '../components/js_the_good_part'
 import { uiTest, markdownIt } from '../components/test'
@@ -65,5 +66,9 @@ export default new Router({
     path: 'image',
     name: 'image-board',
     component: import('@/components/collection/image')
+  }, {
+    path: '/apb',
+    name: 'apb',
+    component: apb
   }]
 })
