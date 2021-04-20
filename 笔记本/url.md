@@ -1,0 +1,1 @@
+https://github.com/pmmmwh/react-refresh-webpack-plugin/issues/88 
